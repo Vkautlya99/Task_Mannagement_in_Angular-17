@@ -1,0 +1,41 @@
+<app-page-title></app-page-title>
+
+<div class="flex mt-5">
+  <input type="text" class="bg-gray-300 w-full h-12 items-center px-5 py-2 mt-3 rounded-sm shadow-md"
+    placeholder="Type Your Task" [(ngModel)]="newdata" (keydown.enter)="addtask()">
+
+</div>
+
+<div class="flex flex-col mt-4">
+
+
+  <h2 class="font-bold text-xl">Tasks</h2>
+
+
+  @for(task of tasklist; track task){
+<div>
+  <p class="flex justify-between bg-slate-200 w-auto h-10 px-5 py-2 rounded shadow items-center mt-1">
+
+    {{task.title}}
+
+  <div class="flex justify-between ">
+
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4 ml-96 -mt-6 hover:cursor-pointer"
+    (click)="markImportant(task)">
+      <path fill-rule="evenodd"
+        d="M8 1.75a.75.75 0 0 1 .692.462l1.41 3.393 3.664.293a.75.75 0 0 1 .428 1.317l-2.791 2.39.853 3.575a.75.75 0 0 1-1.12.814L7.998 12.08l-3.135 1.915a.75.75 0 0 1-1.12-.814l.852-3.574-2.79-2.39a.75.75 0 0 1 .427-1.318l3.663-.293 1.41-3.393A.75.75 0 0 1 8 1.75Z"
+        clip-rule="evenodd" />
+    </svg>
+
+
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+      class="w-6 h-4 mr-96 -mt-6 hover:cursor-pointer"
+      (click)="markComplete(task)">
+
+      <path stroke-linecap="round" stroke-linejoin="round"
+        d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+    </svg>
+
+</div>
+  </div>
+  }
